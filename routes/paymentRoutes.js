@@ -5,12 +5,11 @@ const crypto = require('crypto');
 const Razorpay = require('razorpay');
 const User = require('../models/userModel');
 const checkJwt = require('../middleware/checkJwt');
-require('dotenv').config();
 
 // Initialize Razorpay
 const razorpay = new Razorpay({
-  key_id: process.env.razor_id,
-  key_secret: process.env.razor_secret
+  key_id: 'rzp_test_YfSCBBlKc69vXF',
+  key_secret: 'MqH4qxJ0WAcapsnRAmGDciex'
 });
 
 // Create an order
@@ -41,7 +40,7 @@ router.post('/paymentSuccess',checkJwt, async(req, res) => {
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = response;
 
   var generatedSignature = crypto
-    .createHmac("SHA256", process.env.razor_secret)
+    .createHmac("SHA256", "MqH4qxJ0WAcapsnRAmGDciex")
     .update(razorpay_order_id + "|" + razorpay_payment_id)
     .digest("hex");
 

@@ -2,16 +2,16 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const { ExpressPeerServer } = require('peer');
 
 
 const Batch = require('./models/batchModel');
 
 const cors=require("cors");
 
-require('dotenv').config();
 
 
-uri=  process.env.DB_CONNECTION_STRING
+uri=  'mongodb+srv://nirvanatechsolutions:XzAWqQaiQAAgsacn@encodedbits.npwoljq.mongodb.net/'
 const app = express();
 
 
