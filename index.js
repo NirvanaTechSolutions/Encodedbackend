@@ -24,11 +24,11 @@ const app = express();
 
 
 
-// const corsOptions ={
-//    origin:['http://localhost:4200','https://encodedbackend.vercel.app/','http://localhost:1220'], 
-//    credentials:true,            //access-control-allow-credentials:true
-//    optionSuccessStatus:200,
-// }
+const corsOptions ={
+   origin:['http://localhost:4200','https://encodedbackend.vercel.app/','http://localhost:1220'], 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
 
 const authRoutes = require('./routes/authRoutes');
 const paymentRoutes  = require('./routes/paymentRoutes')
@@ -43,20 +43,20 @@ const batchRoutes  = require('./routes/batchRoutes')
 
 // Create an Express application
 
-// app.use(cors(corsOptions))
+app.use(cors(corsOptions))
 
-// app.use((req, res, next) => {
-//   const allowedOrigins = ['http://localhost:4200','https://encodedbackend.vercel.app','http://localhost:1220']; 
+app.use((req, res, next) => {
+  const allowedOrigins = ['http://localhost:4200','https://encodedbackend.vercel.app','http://localhost:1220']; 
 
-//   const origin = req.headers.origin;
-//   if (allowedOrigins.includes(origin)) {
-//     res.setHeader('Access-Control-Allow-Origin', origin);
-//   } else {
-//     return res.status(403).send('Unauthorized access');
-//   }
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    return res.status(403).send('Unauthorized access');
+  }
 
-//   next();
-// });
+  next();
+});
 
 
 // Parse incoming JSON requests
