@@ -25,7 +25,7 @@ const app = express();
 
 
 const corsOptions ={
-   origin:['http://localhost:4200','https://encodedbackend.vercel.app/','http://localhost:1220'], 
+   origin:['http://localhost:4200','https://nirvanatechsolutions.github.io/EncodedFrontendtest'], 
    credentials:true,            //access-control-allow-credentials:true
    optionSuccessStatus:200,
 }
@@ -46,7 +46,7 @@ const batchRoutes  = require('./routes/batchRoutes')
 app.use(cors(corsOptions))
 
 app.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:4200','https://encodedbackend.vercel.app','http://localhost:1220']; 
+  const allowedOrigins = ['http://localhost:4200','https://encodedbackend.vercel.app/','https://nirvanatechsolutions.github.io/EncodedFrontendtest']; 
 
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
@@ -92,7 +92,7 @@ const serverwithsocket =    app.listen(1220, () => {
 
     const io = require('socket.io')(serverwithsocket, {
       cors: {
-       origin: ["http://localhost:4200","https://encodedbackend.vercel.app/","http://localhost:1220"], //specific origin you want to give access to,
+       origin: ["http://localhost:4200","https://encodedbackend.vercel.app/","https://nirvanatechsolutions.github.io/EncodedFrontendtest"], //specific origin you want to give access to,
    }}); //? invoking the func also something like func()
       
     io.on('connection', (socket) => {
