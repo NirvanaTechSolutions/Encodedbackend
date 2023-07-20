@@ -46,7 +46,7 @@ const batchRoutes  = require('./routes/batchRoutes')
 app.use(cors(corsOptions))
 
 app.use((req, res, next) => {
-  const allowedOrigins = ['http://localhost:4200','https://encodedbackend.vercel.app/']; 
+  const allowedOrigins = ['http://localhost:4200','https://encodedbackend.vercel.app']; 
 
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
